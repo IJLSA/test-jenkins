@@ -2,7 +2,7 @@ package com.ijlsa.twitter.repository
 
 import com.ijlsa.twitter.model.Tweet
 import org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -27,8 +27,9 @@ class TweetRepositoryTest {
                 500,
                 139,
                 LocalDateTime.now())
+
         tweetRepository.save(tweet)
 
-        Assertions.assertThat(tweetRepository.findById(id).get()).isEqualTo(tweet)
+        assertThat(tweetRepository.findById(id).get()).isEqualTo(tweet)
     }
 }
